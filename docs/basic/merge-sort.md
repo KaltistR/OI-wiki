@@ -98,7 +98,9 @@
 === "C/C++"
     ```cpp
     void merge_sort(int *a, int l, int r) {
-      if (r - l <= 1) return;
+        if ( r - l < 1) return;
+      //if (r - l <= 1) return;
+      //纠错：这里若r-l=1的话实际上区间内就存在两个元素，会导致排序失败
       // 分解
       int mid = l + ((r - l) >> 1);
       merge_sort(a, l, mid), merge_sort(a, mid, r);
